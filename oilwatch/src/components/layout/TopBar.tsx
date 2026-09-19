@@ -3,8 +3,8 @@ import { StatusBadge } from "../common/StatusBadge";
 
 interface TopBarProps {
   activeCase: InvestigationCase | null;
-  view: "console" | "admin";
-  onChangeView: (view: "console" | "admin") => void;
+  view: "console" | "admin" | "workflow";
+  onChangeView: (view: "console" | "admin" | "workflow") => void;
   onOpenCaseManager: () => void;
   onOpenAccessibility: () => void;
   onExport: () => void;
@@ -41,6 +41,14 @@ export function TopBar({
             aria-current={view === "console" ? "page" : undefined}
           >
             Console
+          </button>
+          <button
+            type="button"
+            className={`nav-tab ${view === "workflow" ? "active" : ""}`}
+            onClick={() => onChangeView("workflow")}
+            aria-current={view === "workflow" ? "page" : undefined}
+          >
+            How It Works
           </button>
           <button
             type="button"

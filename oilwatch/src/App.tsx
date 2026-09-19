@@ -17,6 +17,7 @@ import { EvidenceDrawer } from "./components/evidence/EvidenceDrawer";
 import { CaseIntakeForm } from "./components/cases/CaseIntakeForm";
 import { CaseManagerModal } from "./components/cases/CaseManagerModal";
 import { AdminView } from "./components/admin/AdminView";
+import { WorkflowPage } from "./pages/WorkflowPage";
 import { AccessibilityPanel } from "./components/accessibility/AccessibilityPanel";
 import { Modal } from "./components/common/Modal";
 
@@ -51,7 +52,7 @@ function App() {
 
   const processing = useProcessingStore();
 
-  const [view, setView] = useState<"console" | "admin">("console");
+  const [view, setView] = useState<"console" | "admin" | "workflow">("console");
   const [modal, setModal] = useState<ModalKind>("none");
   const [selectedVesselId, setSelectedVesselId] = useState<string | null>(null);
   const [toast, setToast] = useState<string | null>(null);
@@ -176,6 +177,8 @@ function App() {
 
       {view === "admin" ? (
         <AdminView cases={caseList} />
+      ) : view === "workflow" ? (
+        <WorkflowPage investigationCase={activeCase} />
       ) : (
         <main className="app-main">
           <section className="map-pane">
