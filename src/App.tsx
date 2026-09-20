@@ -211,15 +211,12 @@ function App() {
             <SpillDetectionPanel slick={activeCase?.slick ?? null} />
             <OriginPanel hindcast={activeCase?.hindcast ?? null} forecast={activeCase?.forecast ?? null} />
 
-            <section className="panel-section" aria-label="Candidate Vessels">
-              <h2 className="panel-section-title">Candidate Vessels</h2>
-              <CandidateList
-                candidates={activeCase?.candidates ?? []}
-                selectedVesselId={selectedVesselId}
-                onSelect={(id) => setSelectedVesselId(id)}
-                analysisStarted={!!activeCase?.slick}
-              />
-            </section>
+            <CandidateList
+              candidates={activeCase?.candidates ?? []}
+              selectedVesselId={selectedVesselId}
+              onSelect={(id) => setSelectedVesselId(id)}
+              analysisStarted={!!activeCase?.slick}
+            />
 
             {selectedCandidate && (
               <EvidenceDrawer candidate={selectedCandidate} onClose={() => setSelectedVesselId(null)} />

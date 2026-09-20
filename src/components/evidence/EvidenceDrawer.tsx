@@ -23,7 +23,7 @@ export function EvidenceDrawer({ candidate, onClose }: EvidenceDrawerProps) {
       <div className="evidence-drawer-header">
         <div>
           <h2 className="evidence-vessel-name">{candidate.vessel.name}</h2>
-          <p className="evidence-vessel-imo">IMO {candidate.vessel.imo}</p>
+          <p className="evidence-vessel-imo">{candidate.vessel.imo}</p>
           <p className="evidence-score-headline">
             Candidate Attribution Score: {candidate.attributionScore} / 100
           </p>

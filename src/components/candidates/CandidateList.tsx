@@ -70,7 +70,7 @@ export function CandidateList({
                     </td>
                     <td>
                       <span className="candidate-vessel-name">{candidate.vessel.name}</span>
-                      <span className="candidate-vessel-imo">IMO {candidate.vessel.imo}</span>
+                      <span className="candidate-vessel-imo">{candidate.vessel.imo}</span>
                     </td>
                     <td>{candidate.attributionScore} / 100</td>
                     <td>{candidate.breakdown.spatial}</td>
